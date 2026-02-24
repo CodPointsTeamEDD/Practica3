@@ -42,11 +42,30 @@ public class ConjuntoArreglo<T> extends Conjunto<T>{
     }
 
     public boolean pertenece(T elemento) {
-        /*Aquí va tu código*/
+        for (T aux : elementos) {
+            if (aux.equals(e)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public void agregarElemento(T elemento) {
-        /*Aquí va tu código*/
+        if (pertenece(elemento)) {
+            return this;
+        }
+
+        int n = elementos.length;
+
+        T[] elementosNuevo = new Object[n + 1];
+
+        for (int i = 0; i < n; i++) {
+            elementosNuevo[i] = elementos[i];
+        }
+
+        elementosNuevo[n] = elemento;
+
+        elementos = elementosNuevo;
     }
     
     public void eliminarElemento(T elemento){
