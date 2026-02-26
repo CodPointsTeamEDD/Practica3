@@ -41,9 +41,10 @@ public class ConjuntoArreglo<T> extends Conjunto<T>{
         }
     }
 
+    @Override
     public boolean pertenece(T elemento) {
         for (T aux : elementos) {
-            if (aux.equals(e)) {
+            if (aux.equals(elemento)) {
                 return true;
             }
         }
@@ -52,12 +53,12 @@ public class ConjuntoArreglo<T> extends Conjunto<T>{
 
     public void agregarElemento(T elemento) {
         if (pertenece(elemento)) {
-            return this;
+            return;
         }
 
         int n = elementos.length;
 
-        T[] elementosNuevo = new Object[n + 1];
+        T[] elementosNuevo = (T[]) new Object[n + 1];
 
         for (int i = 0; i < n; i++) {
             elementosNuevo[i] = elementos[i];
@@ -67,13 +68,31 @@ public class ConjuntoArreglo<T> extends Conjunto<T>{
 
         elementos = elementosNuevo;
     }
+
     
     public void eliminarElemento(T elemento){
-    	/*Aquí va tu código*/
+        int indice = 0;
+
+
+        if(pertenece(elemento)){
+
+            for (T aux : elementos) {
+                if (!aux.equals(elemento)) {
+                    indice++;  
+                }
+            }
+
+            elementos[indice] = null;
+            (T[]) elementos = eliminarDuplicados((T[]) elementos);
+
+        } else {
+            
+        }
+
     }
 
     public boolean contieneConjunto(Conjunto<T> c) {
-        /*Aquí va tu código*/
+        
     }
 
     public Conjunto<T> union(Conjunto<T> c) {
