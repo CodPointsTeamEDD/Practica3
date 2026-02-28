@@ -3,6 +3,10 @@ import java.util.NoSuchElementException;
 
 public class ConjuntoArreglo<T> extends Conjunto<T>{
 
+    /** 
+     * Metodo iterador que devuelve un objeto de tipo Iterador
+     * @return Devuelve un objeto Iterador<T>
+    */
     @Override
     public Iterator<T> iterator() {
         return new Iterator<T>() {
@@ -25,10 +29,17 @@ public class ConjuntoArreglo<T> extends Conjunto<T>{
 
     private T[] elementos;
 
+    /** 
+     * Constructor por omisión
+    */
     public ConjuntoArreglo() {
         this.elementos = (T[]) new Object[0];
     }
 
+    /** 
+     * Constructor por parametros
+     * @param elementos arreglo de elementos de tipo T
+    */
     public ConjuntoArreglo(T[] elementos) {
         if (elementos == null) {
             this.elementos = (T[]) new Object[0];
@@ -41,6 +52,11 @@ public class ConjuntoArreglo<T> extends Conjunto<T>{
         }
     }
 
+    /** 
+     * Metodo que determina si un elemento está contenido en un conjunto
+     * @param elemento un elemento de tipo T
+     * @return booleano que indica si el elemento está o no contenido
+    */
     @Override
     public boolean pertenece(T elemento) {
         for (T aux : elementos) {
@@ -51,6 +67,12 @@ public class ConjuntoArreglo<T> extends Conjunto<T>{
         return false;
     }
 
+    /** 
+     * Metodo que toma un elemento de tipo T y lo agrega al conjunto 
+     * siempre que no esté ya contenido
+     * 
+     * @param elemento un elemento de tipo T
+    */
     public void agregarElemento(T elemento) {
         if (pertenece(elemento)) {
             return;
@@ -69,7 +91,12 @@ public class ConjuntoArreglo<T> extends Conjunto<T>{
         elementos = elementosNuevo;
     }
 
-    
+    /** 
+     * Metodo que toma un elemento de tipo T y lo elimina del conjunto 
+     * @param elemento un elemento de tipo T
+     * 
+    */    
+    @Override
     public void eliminarElemento(T elemento){
         int indice = 0;
 
@@ -99,10 +126,25 @@ public class ConjuntoArreglo<T> extends Conjunto<T>{
         /*Aquí va tu código*/
     }
 
+    /** 
+     * Metodo que recibe un conjunto "A" de tipo Conjunto<T> y retorna
+     * los elementos que están contenidos al mismo tiempo en si mismo y en "A" 
+     * @param c conjunto de tipo Conjunto<T>
+     * @return nuevo conjunto que contiene los elementos que comparten ambos cojuntos
+    */
     public Conjunto<T> interseccion(Conjunto<T> c) {
-        /*Aquí va tu código*/
-    }
 
+        ConjuntoArreglo<T> interseccion = new ConjuntoArreglo();
+
+        for (T elem : c) {
+            if (this.pertenece(elem)) {
+                interseccion.agregarElemento(elem);
+            }
+        }
+
+        return interseccion;
+    }
+    
     public boolean iguales(Conjunto<T> c) {
         /*Aquí va tu código*/
     }
