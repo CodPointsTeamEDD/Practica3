@@ -119,11 +119,27 @@ public class ConjuntoArreglo<T> extends Conjunto<T>{
     }
 
     public boolean contieneConjunto(Conjunto<T> c) {
-        
+        // el conjunto "pequeño" es el que se pasa como parametro
+        // 1. Si c es vacío, entonces true
+        // 2- Para cada bicho en "c" hacer
+        //    3- Si this.pertenece(c) es falso entonces 
+        //       4- respuesta <- false
+        // 5- Devolver respuesta
+        if (c.obtenerCardinalidad() == 0) {
+            return true;
+        }
+        boolean resp = true;
+
+        for (T elem : c) {
+            if (!this.pertenece(elem)) {
+                resp = false;
+            }
+        }
+        return resp;
     }
 
     public Conjunto<T> union(Conjunto<T> c) {
-        /*Aquí va tu código*/
+        /* Aquí va tu código */
     }
 
     /** 
@@ -144,13 +160,32 @@ public class ConjuntoArreglo<T> extends Conjunto<T>{
 
         return interseccion;
     }
-    
+
     public boolean iguales(Conjunto<T> c) {
-        /*Aquí va tu código*/
+        if (this.obtenerCardinalidad() == 0 && c.obtenerCardinalidad() == 0) {
+            return true;
+        }
+
+        if (c.contieneConjunto(this) && this.contieneConjunto(c)) {
+            return true;
+        }
+        return false;
     }
 
     public int obtenerCardinalidad(){
-        /*Aquí va tu código*/
+        // 1- Si this.elementos.length == 0 entonces devolver 0
+        // 2- sea counter <- 0
+        // 3- para cada bicho en This hacer
+        //      4- counter++
+        // 5- Return counter
+        if (this.elementos.length == 0) {
+            return 0;
+        } 
+        int counter = 0;
+        for (T elem : this) {
+            counter++;
+        }
+        return counter;
     }
 
 }
