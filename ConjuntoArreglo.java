@@ -98,23 +98,24 @@ public class ConjuntoArreglo<T> extends Conjunto<T>{
     */    
     @Override
     public void eliminarElemento(T elemento){
-        int indice = 0;
-
-
-        if(pertenece(elemento)){
-
-            for (T aux : elementos) {
-                if (!aux.equals(elemento)) {
-                    indice++;  
-                }
-            }
-
-            elementos[indice] = null;
-            (T[]) elementos = eliminarDuplicados((T[]) elementos);
-
-        } else {
-            
+        if(!pertenece(elemento)){
+            return;
         }
+
+        int n =  elementos.length;
+
+        T[] nuevoArr =  (T[]) new Object[n - 1];
+
+        int j = 0;
+
+        for (int i = 0; i < n; i++) {
+            if(!elementos[i].equals(elemento)){
+                nuevoArr[j] = elementos[i];
+                j++;
+            }
+        }
+        
+        elementos = nuevoArr;
 
     }
 
@@ -139,8 +140,19 @@ public class ConjuntoArreglo<T> extends Conjunto<T>{
     }
 
     public Conjunto<T> union(Conjunto<T> c) {
-        /* Aquí va tu código */
+        ConjuntoArreglo<T> c3 = new ConjuntoArreglo();
+
+        for (T aux : this) {
+            c3.agregarElemento(aux);
+        }
+
+        for(T aux2 : c){
+            c3.agregarElemento(aux2);
+        }
+
+        return c3;
     }
+
 
     /** 
      * Metodo que recibe un conjunto "A" de tipo Conjunto<T> y retorna
