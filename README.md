@@ -1,0 +1,20 @@
+Integrantes del equipo: 
+
+Erick Xavier Martinez Briones 
+ - 426007742 
+ - erick.martinezkmn@ciencias.unam.mx
+Luis Fernando Quintana López 
+ - 323023092 
+ - fernandoquintana@ciencias.unam.mx
+
+ Instrucciones de ejecución
+
+    Archivos a compilar con javac:
+        javac MainConjuntos.java
+        javac Grupo.java
+
+    Archivos a ejecutar:
+        java MainConjuntos
+        java Grupo
+
+(Ejectuar en pantalla completa de la terminal)

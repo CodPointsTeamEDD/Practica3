@@ -2,8 +2,20 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
+/**
+ * Clase concreta {@code Grupo}
+ * 
+ * @author Luis Fernando Quintana López
+ * @author Erick Xavier Martinez Briones
+ * @version 1.0.0
+ * @since 2026
+ * 
+ */
 public class Grupo {
 
+    /** 
+     * 
+     */MainConjuntos
     public static void metodoCoordinacion() {
         ConjuntoArreglo<String> robotica = new ConjuntoArreglo<>();
         ConjuntoArreglo<String> programacionWeb = new ConjuntoArreglo<>();
@@ -80,7 +92,6 @@ public class Grupo {
     }
 
     public static void main(String[] args) {
-
         System.out.println("=== Coordinacion de Ciencias de la Computacion ===");
         metodoCoordinacion();
     }
