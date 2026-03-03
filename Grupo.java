@@ -14,8 +14,8 @@ import java.io.IOException;
 public class Grupo {
 
     /** 
-     * 
-     */MainConjuntos
+     * MainConjuntos
+     */
     public static void metodoCoordinacion() {
         ConjuntoArreglo<String> robotica = new ConjuntoArreglo<>();
         ConjuntoArreglo<String> programacionWeb = new ConjuntoArreglo<>();
