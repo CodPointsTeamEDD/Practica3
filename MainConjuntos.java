@@ -9,6 +9,13 @@
  */
 
 public class MainConjuntos {
+    /** 
+     * Metodo que almacena información en objetos de tipo ConjuntoArreglo
+     * y muestra en terminal el resultado de la ejecución de las 
+     * operaciones asociadas a los conjuntos
+     * 
+     * @param args parametros recibidos a través de la terminal
+    */
     public static void main(String[] args) {
         // Prueba con Strings
         String[] frutas = {"Manzana", "Platano", "Naranja"};

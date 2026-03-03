@@ -14,7 +14,9 @@ import java.io.IOException;
 public class Grupo {
 
     /** 
-     * MainConjuntos
+     * Metodo que lee el archivo Alumnos.txt, almacena la información en objetos
+     * de tipo ConjuntoArreglo y muestra en terminal el resultado de la ejecución
+     * de las operaciones asociadas a los conjuntos
      */
     public static void metodoCoordinacion() {
         ConjuntoArreglo<String> robotica = new ConjuntoArreglo<>();
@@ -90,7 +92,11 @@ public class Grupo {
         }
 
     }
-
+    /** 
+     * Metodo principal que ejecuta el metodo metodoCoordinación para resolver
+     * el problema planteado
+     * @param args parametros recibidos a través de la terminal
+    */
     public static void main(String[] args) {
         System.out.println("=== Coordinacion de Ciencias de la Computacion ===");
         metodoCoordinacion();
